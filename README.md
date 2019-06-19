@@ -184,7 +184,7 @@ Response body:
 ```
 
 
-###Cluster Architecture:
+### Cluster Architecture:
 ![alt text](https://www.linode.com/docs/databases/mongodb/build-database-clusters-with-mongodb/mongodb-cluster-diagram.png)
 
 ![alt text](https://severalnines.com/sites/default/files/api_arch.png)
