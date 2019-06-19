@@ -13,7 +13,7 @@
 - `git clone https://github.com/Jp-caillet/mds_m1_Caillet_jean-Philippe_optimperf.git`
 - `cd mds_m1_Caillet_jean-Philippe_optimperf`
 - `npm install`
-- `node app.js`
+- `npm start`
 
 
 ## BASE DE DONNEE
