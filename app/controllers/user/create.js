@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt')
 const saltRounds = 10
 const myPlaintextPassword = 's0/\/\P4$$w0rD'
 const someOtherPlaintextPassword = 'not_bacon'
+const db = require("../../db.js")
 
 // Core
 const check = validator.isObject()
@@ -27,10 +28,8 @@ module.exports = class Create {
    * Data base connect
    */
   getModel (res, payload) {
-    mongoose.connect('mongodb+srv://user:psw@cluster0-829wl.mongodb.net/opti?retryWrites=true&w=majority', { useNewUrlParser: true })
-
-    this.db = mongoose.connection
-    this.db.on('error', () => {
+    
+    db.on('error', () => {
       res.status(500).json({
         'code': 500,
         'message': 'Internal Server Error'
@@ -66,7 +65,7 @@ module.exports = class Create {
               'message': "user already exist"
             })
 
-            this.db.close()
+            
             console.error(`[ERROR] user/create middleware() -> ${err}`)
           }
 

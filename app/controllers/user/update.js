@@ -1,6 +1,7 @@
 // Dependencies
 const mongoose = require('mongoose')
 const validator = require('node-validator')
+const db = require("../../db.js")
 const jwt = require('jsonwebtoken')
 
 // Core
@@ -26,10 +27,9 @@ module.exports = class dislike {
       try {
         // Save
         
-        await mongoose.connect('mongodb+srv://user:psw@cluster0-829wl.mongodb.net/opti?retryWrites=true&w=majority', { useNewUrlParser: true })
-        this.db = await mongoose.connection
+        
         const o_id = new mongoose.Types.ObjectId(req.body.id)
-        const user  = await this.db.collection('users').findOne({_id: o_id})
+        const user  = await db.collection('users').findOne({_id: o_id})
         let name = user.name
         let age = user.age
         let gender= user.gender
@@ -54,7 +54,7 @@ module.exports = class dislike {
 
         
 
-        const result  = await this.db.collection('users').findOneAndUpdate({ _id: o_id }, { $set: {"name" : name, "age" : age, "gender" : gender, "email" : email,"login": login } },{ new: true },(err, task) => {
+        const result  = await db.collection('users').findOneAndUpdate({ _id: o_id }, { $set: {"name" : name, "age" : age, "gender" : gender, "email" : email,"login": login } },{ new: true },(err, task) => {
           
           if (err) {
             return res.status(500).send(err)

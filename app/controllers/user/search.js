@@ -1,6 +1,8 @@
 // Dependencies
 const mongoose = require('mongoose')
 const validator = require('node-validator')
+const db = require("../../db.js")
+
 
 // Core
  
@@ -18,11 +20,10 @@ module.exports = class Show {
     this.app.get('/search', async (req, res) => {
       try {
         // Save
-        await mongoose.connect('mongodb+srv://user:psw@cluster0-829wl.mongodb.net/opti?retryWrites=true&w=majority', { useNewUrlParser: true })
-        this.db = await mongoose.connection
-        const result  = await this.db.collection('users').find( {} ).toArray()
+        
+        const result  = await db.collection('users').find( {} ).toArray()
         res.status(200).json(result)
-        this.db.close()
+        
       } catch (e) {
         console.error(`[ERROR] user/show -> ${e}`)
         res.status(400).json({
