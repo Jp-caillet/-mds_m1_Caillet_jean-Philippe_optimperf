@@ -33,7 +33,7 @@
 Example: http://localhost:3000/create
 
 body (json):
-``
+```
 { 
 	"name": "jp",
 	"age": 25,
@@ -41,11 +41,11 @@ body (json):
 	"login": "jp",
 	"mdp": "test"
 }
-``
+```
 
 
 Response body:
-``
+```
 {
     "_id": "5d09fd26f3967b0e65f483f4",
     "name": "jp",
@@ -54,7 +54,7 @@ Response body:
     "login": "jp",
     "mdp": "$2b$10$VxDPnLyDOEDZ2QcUtcQIMeYlWiY2SYpyvewjbzWjTGtQ/979dWxmC"
 }
-``
+```
 
 
 ### GET /USERS
@@ -62,7 +62,7 @@ Response body:
 Example: http://localhost:3000/search
 
 Response body:
-``
+```
 [
     {
         "_id": "5d08b1e0e17e863a5678e789",
@@ -89,22 +89,22 @@ Response body:
         "mdp": "$2b$10$VxDPnLyDOEDZ2QcUtcQIMeYlWiY2SYpyvewjbzWjTGtQ/979dWxmC"
     }
 ]
-``
+```
 
 ### POST /SEARCH User
 
 Example: http://localhost:3000/read
 
 body (json):
-``
+```
 {
 	"id": "5d08b1e0e17e863a5678e789"
 }
-``
+```
 
 
 Response body:
-``
+```
 {
     "obj": {
         "_id": "5d08b1e0e17e863a5678e789",
@@ -115,7 +115,7 @@ Response body:
         "mdp": "$2b$10$WA6wd/yJJ5/.FQu00Cp86uItFhjVu9WJdgodPoCRGHfuE0NUVhnTy"
     }
 }
-``
+```
 
 
 ### POST /UPDATE User
@@ -123,41 +123,41 @@ Response body:
 Example: http://localhost:3000/update
 
 body (json):
-``
+```
 {
 	"id": "5d08b1e0e17e863a5678e789",
 	"email": "jptestapi@gmail.com"
 }
-``
+```
 
 
 Response body:
-``
+```
 {
     "code": 200,
     "message": "succes"
 }
-``
+```
 
 ### POST /DELETE User
 
 Example: http://localhost:3000/update
 
 body (json):
-``
+```
 {
 	"id": "5d08b1e0e17e863a5678e789"
 }
-``
+```
 
 
 Response body:
-``
+```
 {
     "code": 200,
     "message": "succes"
 }
-``
+```
 
 
 ###Cluster Architecture:
