@@ -18,14 +18,14 @@ module.exports = class SearchByEmail {
    * Middleware
    */
   middleware () {
-    this.app.post('/read', validator.express(check), (req, res) => {
+    this.app.post('/delete', validator.express(check), (req, res) => {
       try {
         // Save
         
         mongoose.connect('mongodb+srv://user:psw@cluster0-829wl.mongodb.net/opti?retryWrites=true&w=majority', { useNewUrlParser: true })
         this.db = mongoose.connection
         const o_id = new mongoose.Types.ObjectId(req.body.id)
-        this.db.collection('users').findOne({_id: o_id}, function(err,obj) {
+        this.db.collection('users').deleteOne({_id: o_id}, function(err,obj) {
           if(obj == null){
             res.status(200).json({
               code: 409,
@@ -33,8 +33,9 @@ module.exports = class SearchByEmail {
             })
           }else{
             res.status(409).json({
-              obj
-            })
+          'code': 200,
+          'message': 'succes'
+        })
           }
           
         })

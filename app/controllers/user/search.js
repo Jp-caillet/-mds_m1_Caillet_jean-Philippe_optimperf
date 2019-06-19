@@ -22,7 +22,7 @@ module.exports = class Show {
         this.db = await mongoose.connection
         const result  = await this.db.collection('users').find( {} ).toArray()
         res.status(200).json(result)
-        
+        this.db.close()
       } catch (e) {
         console.error(`[ERROR] user/show -> ${e}`)
         res.status(400).json({
